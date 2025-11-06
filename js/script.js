@@ -1,26 +1,6 @@
-const prezzoAlKm = 0.21;
-const scontoMinorenni = 20;
-const scontoOver65 = 40;
-const kmPercorrere = 10;
-const etaUtente = 20;
-
-let costoTotale = prezzoAlKm * kmPercorrere 
-if (etaUtente < 18) {
-
-    let sconto = costoTotale * (scontoMinorenni / 100)
-    console.log (sconto)
-    costoTotale = costoTotale - sconto
-    
-}
-else if (etaUtente > 65) {
-
-    let sconto = costoTotale * (scontoOver65 / 100)
-    console.log (sconto)
-    costoTotale = costoTotale - sconto
-} 
-
-console.log(`Il prezzo del biglietto è ${costoTotale.toFixed(2)}€`);
-
+const priceKm = 0.21;
+const discountMin = 20;
+const discountOver = 40;
 
 // form
 const formElem = document.getElementById("treno-form");
@@ -33,8 +13,50 @@ const ageInput = document.getElementById("age");
 
 // elementi del riepilogo
 const passengerNameElem = document.querySelector(".f-name");
-const typeElem = document.querySelector("f-type");
+const typeElem = document.querySelector(".f-type");
 const carElem = document.querySelector(".f-car");
 const cpElem = document.querySelector(".f-cp");
 const priceElem = document.querySelector(".f-price");
 
+// submit del form
+formElem.addEventListener("submit", function(event){
+    event.preventDefault();
+
+
+// values degli input
+const nameUser = nameInput.value;
+const kmUser = parseInt(kmInput.value);
+const ageUser = ageInput.value;
+
+//calcolo del costo
+let totalPrice = priceKm * kmUser;
+
+if (ageUser === "min") {
+
+    let discount = totalPrice * (discountMin / 100);
+    totalPrice = totalPrice - discount;
+    typeElem.innerHTML = "Biglietto Giovani";
+    
+}
+else if (ageUser === "over") {
+
+    let discount = totalPrice * (discountOver / 100);
+    totalPrice = totalPrice - discount;
+    typeElem.innerHTML = "Biglietto Adulti";
+} 
+else {
+    typeElem.innerHTML = "Biglietto Standard";
+}
+
+// numeri generati
+const car = Math.floor(Math.random() * 10) + 1;
+const cp = Math.floor(Math.random() * 90000) + 10000;
+
+// stampa
+passengerNameElem.innerHTML = nameUser;
+carElem.innerHTML = car;
+cpElem.innerHTML = cp;
+priceElem.innerHTML = `${totalPrice.toFixed(2)}€`;
+
+formElem.reset();
+})
