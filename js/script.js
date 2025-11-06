@@ -23,7 +23,18 @@ console.log(`Il prezzo del biglietto è ${costoTotale.toFixed(2)}€`);
 
 
 // form
-// const formElem = document.getElementById("treno-form");
-// console.log(formElem);
+const formElem = document.getElementById("treno-form");
+console.log(formElem);
 
 // imputs
+const nameInput = document.getElementById("name");
+const kmInput = document.getElementById("km");
+const ageInput = document.getElementById("age");
+
+// elementi del riepilogo
+const passengerNameElem = document.querySelector(".f-name");
+const typeElem = document.querySelector("f-type");
+const carElem = document.querySelector(".f-car");
+const cpElem = document.querySelector(".f-cp");
+const priceElem = document.querySelector(".f-price");
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -9,25 +9,57 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-warning-subtle py-5">
     <main>
-        <form action="treno-form">
-        <div>
-            <label for="name">Nome e Cognome</label>
-            <input autocomplete="off" type="text" id="name">
-        </div>
-        <div>
-            <label for="km">Km da percorrere</label>
-            <input autocomplete="off" type="text" value="10" id="km">
-        </div>
-        <select>Fascia d'età>
-            <option value="min">Minorenne</option>
-            <option value="mag">Maggiorenne</option>
-        </select>
-        <div>
-            <button type="submit" id="send-btn">Genera</button>
-        </div>
-        </form>
+        <div class="container text-center">
+            <h2 class="mb-4">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+            <div class="row d-block">
+                <div class="col-12 bg-white p-4">
+                    <form id="treno-form">
+                        <div class="mb-3">
+                            <label for="name">Nome e Cognome</label>
+                            <input autocomplete="off" type="text" id="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="km">Km da percorrere</label>
+                            <input autocomplete="off" type="text" value="10" id="km" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fascia d'età</label>
+                            <select id="age" class="form-select">
+                            <option value="min">Minorenne</option>
+                            <option value="mag">Maggiorenne</option>
+                        </select>
+                        </div>
+                            <button type="submit" id="send-btn" class="btn btn-primary">Genera</button>
+                        <button type="reset" class="btn btn-secondary">Annulla</button>
+                    </form>
+                </div>
+
+                <div class="col-12 bg-white p-4">
+                    <div class="card-header mb-3">
+                        <h2>RIEPILOGO</h2>
+                    </div>
+                    <div>
+                        <h2 class="f-name">Nome e Cognome passeggero</h2>
+                    </div>
+                    <div>
+                        <h2>Tipologia Biglietto</h2>
+                    </div>
+                    <div>
+                        <h2 class="f-type">Biglietto Standard</h2>
+                    </div>
+                    <div>
+                        <h2 class="f-car">Carrozza</h2>
+                    </div>
+                    <div>
+                        <h2 class="f-cp">Codice CP</h2>
+                    </div>
+                    <div>
+                        <h2 class="f-price">Costo Biglietto</h2>
+                    </div>
+                </div>
+                    </form>
     </main>
     <script src="./js/script.js"></script>
 </body>
